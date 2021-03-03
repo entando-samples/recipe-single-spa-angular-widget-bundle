@@ -1,0 +1,9 @@
+code: single-spa-angular-widget-bundle
+description: Single Spa Angular Widget Bundle
+components:
+  fragments:
+    - fragments/import-map-ux-fragment.yaml
+  widgets:
+    - ui/widgets/recipes/single-spa-angular-widget/single-spa-angular-widget-descriptor.yaml
+# entando-needle-descriptor-add-widgets - Entando blueprint will add widget bundle files here
+
