@@ -153,6 +153,14 @@ BUNDLE_NAME=$(awk -F': ' '/^code/{print $2}' ./bundle/descriptor.yaml)
 DOCKER_IMAGE=$(awk -F': ' '/^image/{print $2}' ./bundle/plugins/*-plugin.yaml | head -1)
 WIDGET_FOLDER="ui/widgets"
 
+#CUSTOM START - start by copying over the bundle-src. This isn't included in the standard blueprint but allows the source to
+# be applied each time the frontend is built
+BUNDLE_SRC="bundle-src"
+echo "---"
+echo "Copying the bundle source into the bundle dir"
+cp -r ${BUNDLE_SRC}/* bundle/
+#CUSTOM END
+
 find "$WIDGET_FOLDER" -maxdepth 2 -mindepth 2 -type d -not -path "*utils*" > /dev/null 2>&1
 HAS_WIDGETS=$?
 
